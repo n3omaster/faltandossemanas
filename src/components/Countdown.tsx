@@ -10,11 +10,7 @@ const BG_GIF_DESKTOP = "/bg/desktop.gif";
 function getTimeLeft() {
 	const now = Date.now();
 	const diff = TARGET_DATE - now;
-
-	if (diff <= 0) {
-		return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-	}
-
+	if (diff <= 0) { return { days: 0, hours: 0, minutes: 0, seconds: 0 } }
 	return {
 		days: Math.floor(diff / (1000 * 60 * 60 * 24)),
 		hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
@@ -23,11 +19,9 @@ function getTimeLeft() {
 	};
 }
 
-function pad(n: number): string {
-	return n.toString().padStart(2, "0");
-}
+function pad(n: number): string { return n.toString().padStart(2, "0") }
 
-const SHARE_URL = "https://faltandossemanas.com";
+const SHARE_URL = "https://www.faltandossemanas.com";
 
 const SHARE_TEXT_X =
 	"🇨🇺🔥 ¡Faltan solo 2 semanas para la LIBERTAD DE CUBA!\n\nLa cuenta regresiva ya empezó.\n\n¡Se acabo la espera!\n\n#FaltanDosSemanas #CubaLibre #LibertadCuba\n\n";
