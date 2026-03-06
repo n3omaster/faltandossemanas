@@ -30,12 +30,13 @@ function pad(n: number): string {
 const SHARE_URL = "https://faltandossemanas.com";
 
 const SHARE_TEXT_X =
-	"🇨🇺🔥 ¡Faltan solo 2 semanas para la LIBERTAD DE CUBA! La cuenta regresiva ya empezo. ¡Se acabo la espera! #FaltanDosSemanas #CubaLibre #LibertadCuba";
+	"🇨🇺🔥 ¡Faltan solo 2 semanas para la LIBERTAD DE CUBA!\n\nLa cuenta regresiva ya empezó.\n\n¡Se acabo la espera!\n\n#FaltanDosSemanas #CubaLibre #LibertadCuba\n\n";
 
 const SHARE_TEXT_TELEGRAM =
-	"🇨🇺🔥 ¡Faltan solo 2 semanas para la LIBERTAD DE CUBA! La cuenta regresiva ya empezo. ¡Sigue el countdown en vivo! 👉 faltandossemanas.com #FaltanDosSemanas #CubaLibre";
+	"🇨🇺🔥 ¡Faltan solo 2 semanas para la LIBERTAD DE CUBA!\n\nLa cuenta regresiva ya empezó.\n\n¡Sigue el countdown en vivo! 👉 faltandossemanas.com\n\n#FaltanDosSemanas #CubaLibre #LibertadCuba\n\n";
 
 export default function Countdown() {
+
 	const [timeLeft, setTimeLeft] = useState(getTimeLeft);
 	const [bgGif, setBgGif] = useState(BG_GIF_DESKTOP);
 
