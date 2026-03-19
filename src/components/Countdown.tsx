@@ -2,10 +2,23 @@
 
 import { useState, useEffect } from "react";
 
-const TARGET_DATE = new Date("2026-03-19T00:00:00").getTime();
+function getRandomTargetDate(): { timestamp: number; dateStr: string; dateTime: string } {
+	const now = new Date();
+	const randomDays = Math.floor(Math.random() * 5) + 6; // 6 a 10 días
+	const target = new Date(now);
+	target.setDate(target.getDate() + randomDays);
+	target.setHours(0, 0, 0, 0);
+	return {
+		timestamp: target.getTime(),
+		dateStr: target.toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" }),
+		dateTime: target.toISOString().split("T")[0]!,
+	};
+}
 
-const BG_GIF_MOBILE = "/bg/mobile.gif";
-const BG_GIF_DESKTOP = "/bg/desktop.gif";
+const { timestamp: TARGET_DATE, dateStr: TARGET_DATE_STR, dateTime: TARGET_DATE_TIME } = getRandomTargetDate();
+
+const BG_GIF_MOBILE = "/bg/mobile.gif"
+const BG_GIF_DESKTOP = "/bg/desktop.gif"
 
 function getTimeLeft() {
 	const now = Date.now();
@@ -82,7 +95,7 @@ export default function Countdown() {
 				</h1>
 				<p className="text-blue-200 text-sm sm:text-base md:text-lg text-center max-w-2xl mb-8 sm:mb-12 leading-relaxed">
 					Trump declara: faltan solo 2 semanas para la liberacion de Cuba.
-					Cuenta regresiva en vivo al <time dateTime="2026-03-19">19 de marzo de 2026</time>.
+					Cuenta regresiva en vivo al <time dateTime={TARGET_DATE_TIME}>{TARGET_DATE_STR}</time>.
 				</p>
 
 				{isFinished ? (
